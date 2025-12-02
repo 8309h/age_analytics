@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Age Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-container">
+        <div class="header">
+            <h1>Age Calculator <span class="badge">PRO</span></h1>
+            <p>Precise insights, history & sharing</p>
+        </div>
+        
+        <div class="inputs-wrapper">
+            <div class="input-glass full-width">
+                <label>Person's Name (Optional)</label>
+                <div class="input-icon-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="name-input" placeholder="e.g., Mom, Bestie">
+                </div>
+            </div>
+
+            <div class="row-group">
+                <div class="input-glass">
+                    <label>Date of Birth</label>
+                    <input type="date" id="dob">
+                </div>
+                <div class="input-glass">
+                    <label>Check Date</label>
+                    <input type="date" id="current-date">
+                </div>
+            </div>
+        </div>
+
+        <button onclick="calculateAge()" id="calc-btn">
+            Calculate & Save <i class="fa-solid fa-bolt"></i>
+        </button>
+        
+        <div id="history-section" class="history-container hidden">
+            <label>Recent Searches:</label>
+            <div class="history-list" id="history-list"></div>
+        </div>
+
+        <p id="error-msg" class="error-msg"></p>
+
+        <div id="result" class="result-wrapper hidden">
+            <div class="view-toggles">
+                <button class="toggle-btn active" onclick="switchView('standard', this)">Standard</button>
+                <button class="toggle-btn" onclick="switchView('detailed', this)">Weeks & Hours</button>
+            </div>
+
+            <div class="age-display" id="display-cards">
+                <div class="glass-card">
+                    <span id="card-1-val" class="number">0</span>
+                    <span id="card-1-label" class="label">Years</span>
+                </div>
+                <div class="glass-card">
+                    <span id="card-2-val" class="number">0</span>
+                    <span id="card-2-label" class="label">Months</span>
+                </div>
+                <div class="glass-card">
+                    <span id="card-3-val" class="number">0</span>
+                    <span id="card-3-label" class="label">Days</span>
+                </div>
+            </div>
+
+            <div class="extras-grid">
+                <div class="glass-card small info-card">
+                    <i class="fa-solid fa-cake-candles icon"></i>
+                    <div class="text-group">
+                        <span class="label">Next Birthday</span>
+                        <span id="next-bday" class="value">--</span>
+                    </div>
+                </div>
+                <div class="glass-card small info-card">
+                    <i class="fa-solid fa-star icon"></i>
+                    <div class="text-group">
+                        <span class="label">Zodiac</span>
+                        <span id="zodiac" class="value">--</span>
+                    </div>
+                </div>
+                <div class="glass-card small info-card">
+                    <i class="fa-solid fa-calendar-day icon"></i>
+                    <div class="text-group">
+                        <span class="label">Born On</span>
+                        <span id="day-born" class="value">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <button class="share-btn" onclick="downloadImage()">
+                    <i class="fa-solid fa-share-nodes"></i> Share Result
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
